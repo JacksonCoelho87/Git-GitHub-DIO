@@ -69,3 +69,51 @@ Em seguida adicionamos a nossa chave privada, na qual o protocolo utilizará par
 É uma outra forma de segurança ao utilizar os serviços do Git / GitHub. Esse método é feito totalmente pela plataforma do GitHub. Segure-se de guardar o seu token de acesso pois ele ficará visível apenas no momento da sua criação, caso perca-o será necessário revogar o token atual e gerar um novo.
 
 ***
+
+**Comandos Git**
+
+Alguns comandos no Git podem ser feitos utilizando sua autenticação de usuário e senha, chave SSH e token de acesso. O primeiro passo é adicionar um repositório no GitHub, para isso você pode ir a [plataforma](http://www.github.com) e criar. 
+
+Proximo passo é iniciar o Git no diretório que você pretende enviar para o GitHub. Nesse caso utilizamos o seguinte comando.
+
+> git init
+
+Após, configuraremos o git com alguns dados que serão inseridos no commit para identificar futuras alterações feitas por você. Nestes passos utilizar os mesmos dados que utilizaram para criar sua conta no GitHub, pois facilita em não precisar alterar os dados no futuro, caso seja necessário.
+
+> git config --global user.email "exemplo@exemplo.com.br" 
+>
+> git config --global user.name "seu usuário GitHub"
+
+Agora, adicionaremos todos os arquivos e diretórios a serem "comitados" pelo Git.
+
+> git add *
+
+Comitaremos o(os) aquivo(os) com alguma mensagem que o(os) identifique(m) para uma melhor compreensão de quem visualiza seu código no GitHub, utilizando o seguinte comando:
+
+> git commit - m "sua mensagem"
+
+Para visualizar o status do git, utilize o comando:
+
+> git status
+
+Caso você tenha configurado seus dados no git diferente dos dados utilizados no GitHub, você pode fazer a alteração, removendo os dados anteriore e re-inserindo os novos dados. Para remover os dados anteriores utilizamos os seguintes comandos:
+
+> git config --global --unset user.name 
+>
+> git config --global --unset user.email
+
+Para enviar o seu repositório local para o GitHub (comumente chamado de repositório remoto), devemos escolher o método: autenticação https (utilizando usuário e senha do GitHub), chave SSH ou token de acesso. Você deve escolher a melhor opção, pois isso influenciará o "link" que o GitHub lhe fornecerá para inserir no git em seu terminal. Para vincular o seu repositório local ao remoto, utilizamos o seguinte comando:
+
+> git remote add origin (link fornecido pelo GitHub)
+
+Após, podemos enviar (fazer upload) nosso repositório local para o GitHub (repositório remoto) através do comando:
+
+> git push origin master
+
+Caso precisemos realizar alguma mudança em nosso código, devemos simplesmente modificar nossos arquivos, adicionar os arquivos a serem "comitados", comitar e enviar os arquivos. Como o GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git, ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo. Caso o seu código do seu repositório remoto tiver sido alterado por alguém e você tambem o tiver alterado, e você queira manter tanto a mudança feita por algum colaborador quanto a sua, você deverá baixar (fazer download) os arquivos do seu repositório no GitHub, modificá-los, adicionar para serem "comitados", "comitá-los" e só depois enviá-los (fazer upload) para o seu repositório remoto. Para baixar os seus arquivos você utiliza o seguinte comando:
+
+> git pull origin master
+
+Caso você esteja querendo baixar o repositório de alguém da plataforma, você utiliza o comando:
+
+> git clone (aqui você utiliza o link fornecido pelo GitHub)
